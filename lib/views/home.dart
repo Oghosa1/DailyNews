@@ -1,4 +1,5 @@
 import 'package:DailyNews/helper/data.dart';
+import 'package:DailyNews/helper/news.dart';
 import 'package:DailyNews/model/articleModel.dart';
 import 'package:DailyNews/model/categoryModel.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,12 @@ class _HomeState extends State<Home> {
     // TODO: implement initState
     super.initState();
     categories = getCategories();
+  }
+
+  getNews() async {
+    News news = News();
+    await news.getNews();
+    articles = news.news;
   }
 
   @override
@@ -103,7 +110,8 @@ class CategoryTile extends StatelessWidget {
 
 class BlogTile extends StatelessWidget {
   final String imageUrl, title, desc;
-  BlogTile({@required this.imageUrl, @required this.title, @required this.desc})
+  BlogTile(
+      {@required this.imageUrl, @required this.title, @required this.desc});
   @override
   Widget build(BuildContext context) {
     return Container(
