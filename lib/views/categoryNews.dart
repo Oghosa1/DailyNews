@@ -66,6 +66,7 @@ class _CategoryNewsState extends State<CategoryNews> {
             )
           : SingleChildScrollView(
               child: Container(
+                margin: EdgeInsets.only(bottom: 15),
                 child: Column(
                   children: [
                     //Blogs
